@@ -137,42 +137,46 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
   const patient = appointment.patient
 
   return (
-    <div className="space-y-6 fade-in">
+    <div className="space-y-4 sm:space-y-6 fade-in px-4 sm:px-0 pb-20 sm:pb-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="space-y-4">
+        {/* Top row with back button and title */}
         <div className="flex items-center space-x-3">
           <Button variant="ghost" size="icon" onClick={onEndVisit} className="rounded-full">
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">Visit Session</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900">Visit Session</h1>
             <p className="text-slate-600">{appointment.type}</p>
           </div>
         </div>
         
-        {/* Timer Display */}
-        <div className="flex items-center space-x-4">
-          <div className="text-right">
-            <div className="text-3xl font-mono font-bold text-slate-900">
+        {/* Timer and Controls - Responsive Layout */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+          {/* Timer Display */}
+          <div className="text-center sm:text-left">
+            <div className="text-2xl sm:text-3xl font-mono font-bold text-slate-900">
               {formatTime(elapsedTime)}
             </div>
             <div className="text-sm text-slate-600">
               {!isActive ? "Ready to start" : isPaused ? "Paused" : "In progress"}
             </div>
           </div>
-          <div className="flex space-x-2">
+          
+          {/* Control Buttons */}
+          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
             {!isActive ? (
-              <Button onClick={startTimer} className="primary-btn">
+              <Button onClick={startTimer} className="primary-btn w-full sm:w-auto">
                 <Play className="h-4 w-4 mr-2" />
                 Start Visit
               </Button>
             ) : isPaused ? (
-              <Button onClick={resumeTimer} className="primary-btn">
+              <Button onClick={resumeTimer} className="primary-btn w-full sm:w-auto">
                 <Play className="h-4 w-4 mr-2" />
                 Resume
               </Button>
             ) : (
-              <Button onClick={pauseTimer} variant="outline">
+              <Button onClick={pauseTimer} variant="outline" className="w-full sm:w-auto">
                 <Pause className="h-4 w-4 mr-2" />
                 Pause
               </Button>
@@ -183,6 +187,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
                 onClick={endVisit} 
                 variant="destructive"
                 disabled={isEnding}
+                className="w-full sm:w-auto"
               >
                 <Square className="h-4 w-4 mr-2" />
                 {isEnding ? "Ending..." : "End Visit"}
@@ -214,25 +219,25 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div className="flex items-center text-sm text-slate-600">
-                <Phone className="h-4 w-4 mr-2" />
-                <span>{patient.phone}</span>
+                <Phone className="h-4 w-4 mr-2 flex-shrink-0" />
+                <span className="truncate">{patient.phone}</span>
               </div>
               <div className="flex items-center text-sm text-slate-600">
-                <MapPin className="h-4 w-4 mr-2" />
-                <span>{patient.address}</span>
+                <MapPin className="h-4 w-4 mr-2 flex-shrink-0" />
+                <span className="truncate">{patient.address}</span>
               </div>
               {patient.status === "pregnant" && (
                 <div className="flex items-center text-sm text-slate-600">
-                  <Heart className="h-4 w-4 mr-2" />
+                  <Heart className="h-4 w-4 mr-2 flex-shrink-0" />
                   <span>Risk Level: {patient.risk_level}</span>
                 </div>
               )}
               {patient.status === "lactating" && patient.child_name && (
                 <div className="flex items-center text-sm text-slate-600">
-                  <Baby className="h-4 w-4 mr-2" />
-                  <span>{patient.child_name} ({patient.child_gender})</span>
+                  <Baby className="h-4 w-4 mr-2 flex-shrink-0" />
+                  <span className="truncate">{patient.child_name} ({patient.child_gender})</span>
                 </div>
               )}
             </div>
@@ -241,7 +246,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
       )}
 
       {/* Visit Notes Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Chief Complaint */}
         <Card className="health-card">
           <CardHeader>
@@ -316,7 +321,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
       </div>
 
       {/* Additional Information */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Follow-up Date */}
         <Card className="health-card">
           <CardHeader>
@@ -357,16 +362,17 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
 
       {/* Status Indicator */}
       {isActive && (
-        <div className="fixed bottom-6 right-6">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
           <Badge 
-            className={`px-4 py-2 text-sm font-medium ${
+            className={`px-3 py-2 text-xs sm:text-sm font-medium shadow-lg ${
               isPaused 
                 ? "bg-slate-100 text-slate-800" 
                 : "bg-green-100 text-green-800 animate-pulse"
             }`}
           >
-            <Clock className="h-4 w-4 mr-2" />
-            {isPaused ? "Visit Paused" : "Visit In Progress"}
+            <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+            <span className="hidden sm:inline">{isPaused ? "Visit Paused" : "Visit In Progress"}</span>
+            <span className="sm:hidden">{isPaused ? "Paused" : "Active"}</span>
           </Badge>
         </div>
       )}
