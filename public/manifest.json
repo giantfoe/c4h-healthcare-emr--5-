@@ -1,0 +1,109 @@
+{
+  "name": "C4H Maternal Health EMR",
+  "short_name": "C4H Maternal",
+  "description": "Maternal Health EMR System for Pregnant Women and Lactating Mothers in Sierra Leone",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#db2777",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["health", "medical", "maternal", "pregnancy", "lactation"],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Emergency Contacts",
+      "short_name": "Emergency",
+      "description": "Quick access to emergency maternal contacts",
+      "url": "/patients/emergency",
+      "icons": [{ "src": "/icons/emergency-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Antenatal Appointments",
+      "short_name": "Antenatal",
+      "description": "View antenatal appointments",
+      "url": "/appointments/antenatal",
+      "icons": [{ "src": "/icons/pregnancy-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "New Mother",
+      "short_name": "Add Mother",
+      "description": "Register a new pregnant woman or lactating mother",
+      "url": "/patients/new",
+      "icons": [{ "src": "/icons/add-mother-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "High-Risk Cases",
+      "short_name": "High Risk",
+      "description": "Access high-risk maternal cases",
+      "url": "/patients/high-risk",
+      "icons": [{ "src": "/icons/alert-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/maternal-dashboard-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Maternal health dashboard on mobile"
+    },
+    {
+      "src": "/screenshots/pregnancy-tracking-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Pregnancy tracking on mobile"
+    }
+  ]
+}
