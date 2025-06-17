@@ -151,29 +151,29 @@ export default function MaternalHealthDashboard() {
   }
 
   const renderDashboard = () => (
-    <div className="space-y-6 fade-in">
+    <div className="space-y-4 sm:space-y-6 fade-in">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Good morning,</h1>
-          <p className="text-slate-600 font-medium">Dr. Sarah 👋</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-900">Good morning,</h1>
+          <p className="text-sm sm:text-base text-slate-600 font-medium">Dr. Sarah 👋</p>
         </div>
-        <div className="flex items-center space-x-2 relative dropdown-container">
+        <div className="flex items-center space-x-1 sm:space-x-2 relative dropdown-container">
           <Button 
             variant="ghost" 
             size="icon" 
             onClick={() => setShowSearch(!showSearch)}
-            className="h-10 w-10 rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/50 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all duration-200"
+            className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/50 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all duration-200"
           >
-            <Search className="h-4 w-4 text-slate-700" />
+            <Search className="h-3 w-3 sm:h-4 sm:w-4 text-slate-700" />
           </Button>
           <Button 
             variant="ghost" 
             size="icon" 
             onClick={() => setShowNotifications(!showNotifications)}
-            className="h-10 w-10 rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/50 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all duration-200 relative"
+            className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/50 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all duration-200 relative"
           >
-            <Bell className="h-4 w-4 text-slate-700" />
+            <Bell className="h-3 w-3 sm:h-4 sm:w-4 text-slate-700" />
             {notifications.filter(n => !n.read).length > 0 && (
               <span className="absolute -top-1 -right-1 h-3 w-3 bg-pink-500 rounded-full border-2 border-white"></span>
             )}
@@ -182,14 +182,14 @@ export default function MaternalHealthDashboard() {
             variant="ghost" 
             size="icon" 
             onClick={() => setShowSettings(!showSettings)}
-            className="h-10 w-10 rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/50 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all duration-200"
+            className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/50 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all duration-200"
           >
-            <Settings className="h-4 w-4 text-slate-700" />
+            <Settings className="h-3 w-3 sm:h-4 sm:w-4 text-slate-700" />
           </Button>
           
           {/* Search Dropdown */}
           {showSearch && (
-            <div className="absolute top-12 right-0 w-80 bg-white rounded-xl shadow-2xl border border-slate-200 p-4 z-50">
+            <div className="absolute top-10 sm:top-12 right-0 w-72 sm:w-80 bg-white rounded-xl shadow-2xl border border-slate-200 p-3 sm:p-4 z-50">
               <div className="space-y-3">
                 <div className="flex items-center space-x-2">
                   <Search className="h-4 w-4 text-slate-400" />
@@ -197,7 +197,7 @@ export default function MaternalHealthDashboard() {
                     placeholder="Search patients, appointments..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="border-0 focus:ring-0 p-0 text-sm flex-1 outline-none"
+                    className="border-0 focus:ring-0 p-0 text-sm flex-1 outline-none bg-white"
                     autoFocus
                   />
                 </div>
@@ -236,7 +236,7 @@ export default function MaternalHealthDashboard() {
           
           {/* Notifications Dropdown */}
           {showNotifications && (
-            <div className="absolute top-12 right-0 w-96 bg-white rounded-xl shadow-2xl border border-slate-200 z-50">
+            <div className="absolute top-10 sm:top-12 right-0 w-80 sm:w-96 bg-white rounded-xl shadow-2xl border border-slate-200 z-50">
               <div className="p-4 border-b border-slate-200">
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-slate-900">Notifications</h3>
@@ -290,7 +290,7 @@ export default function MaternalHealthDashboard() {
           
           {/* Settings Dropdown */}
           {showSettings && (
-            <div className="absolute top-12 right-0 w-64 bg-white rounded-xl shadow-2xl border border-slate-200 p-2 z-50">
+            <div className="absolute top-10 sm:top-12 right-0 w-56 sm:w-64 bg-white rounded-xl shadow-2xl border border-slate-200 p-2 z-50">
               <div className="space-y-1">
                 <Button variant="ghost" size="sm" className="w-full justify-start text-sm">
                   Profile Settings
@@ -316,17 +316,17 @@ export default function MaternalHealthDashboard() {
 
       {/* Offline Indicator */}
       {!isOnline && (
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
           <div className="flex items-center">
-            <AlertTriangle className="h-5 w-5 text-amber-600 mr-3" />
-            <span className="text-amber-800 font-medium">You're offline - Using cached data</span>
+            <AlertTriangle className="h-5 w-5 text-slate-600 mr-3" />
+            <span className="text-slate-800 font-medium">You're offline - Using cached data</span>
           </div>
         </div>
       )}
 
       {/* Today's Overview */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="pink-card">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="pink-card p-4 sm:p-6">
           <div className="flex items-center justify-between mb-3">
             <div className="p-2 bg-white/50 rounded-xl">
               <Users className="h-5 w-5 text-pink-800" />
@@ -338,7 +338,7 @@ export default function MaternalHealthDashboard() {
           <div className="text-xs text-slate-600 mt-1">Active cases</div>
         </div>
 
-        <div className="purple-card">
+        <div className="purple-card p-4 sm:p-6">
           <div className="flex items-center justify-between mb-3">
             <div className="p-2 bg-white/50 rounded-xl">
               <Baby className="h-5 w-5 text-purple-600" />
@@ -350,18 +350,18 @@ export default function MaternalHealthDashboard() {
           <div className="text-xs text-purple-600 mt-1">Under care</div>
         </div>
 
-        <div className="cream-card">
+        <div className="cream-card p-4 sm:p-6">
           <div className="flex items-center justify-between mb-3">
             <div className="p-2 bg-white/50 rounded-xl">
-              <Calendar className="h-5 w-5 text-orange-600" />
+              <Calendar className="h-5 w-5 text-blue-600" />
             </div>
           </div>
-          <div className="metric-value text-orange-900">{dashboardStats.todayAppointments}</div>
-          <div className="metric-label text-orange-700">Today's Appointments</div>
-          <div className="text-xs text-orange-600 mt-1">Scheduled visits</div>
+          <div className="metric-value text-blue-900">{dashboardStats.todayAppointments}</div>
+          <div className="metric-label text-blue-700">Today's Appointments</div>
+          <div className="text-xs text-blue-600 mt-1">Scheduled visits</div>
         </div>
 
-        <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 shadow-sm">
+        <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-4 sm:p-6 shadow-sm">
           <div className="flex items-center justify-between mb-3">
             <div className="p-2 bg-white/50 rounded-xl">
               <AlertTriangle className="h-5 w-5 text-red-600" />
@@ -374,86 +374,86 @@ export default function MaternalHealthDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="health-card p-6">
+      <div className="health-card p-4 sm:p-6">
         <h2 className="section-title">Quick Actions</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <Button
             onClick={() => setActiveView("new-patient")}
-            className="primary-btn h-20 flex-col space-y-2 text-white"
+            className="primary-btn h-16 sm:h-20 flex-col space-y-1 sm:space-y-2 text-white"
           >
-            <Plus className="h-6 w-6" />
-            <span className="font-medium">New Mother</span>
+            <Plus className="h-5 w-5 sm:h-6 sm:w-6" />
+            <span className="text-sm sm:text-base font-medium">New Mother</span>
           </Button>
           <Button
             onClick={() => setActiveView("appointments")}
-            className="modern-btn h-20 flex-col space-y-2 text-slate-700 hover:text-slate-900"
+            className="modern-btn h-16 sm:h-20 flex-col space-y-1 sm:space-y-2 text-slate-700 hover:text-slate-900"
           >
-            <Calendar className="h-6 w-6" />
-            <span className="font-medium">Schedule Visit</span>
+            <Calendar className="h-5 w-5 sm:h-6 sm:w-6" />
+            <span className="text-sm sm:text-base font-medium">Schedule Visit</span>
           </Button>
           <Button
             onClick={() => setActiveView("patients")}
-            className="modern-btn h-20 flex-col space-y-2 text-slate-700 hover:text-slate-900"
+            className="modern-btn h-16 sm:h-20 flex-col space-y-1 sm:space-y-2 text-slate-700 hover:text-slate-900"
           >
-            <Search className="h-6 w-6" />
-            <span className="font-medium">Find Mother</span>
+            <Search className="h-5 w-5 sm:h-6 sm:w-6" />
+            <span className="text-sm sm:text-base font-medium">Find Mother</span>
           </Button>
           <Button
             onClick={() => setActiveView("reports")}
-            className="modern-btn h-20 flex-col space-y-2 text-slate-700 hover:text-slate-900"
+            className="modern-btn h-16 sm:h-20 flex-col space-y-1 sm:space-y-2 text-slate-700 hover:text-slate-900"
           >
-            <Activity className="h-6 w-6" />
-            <span className="font-medium">Health Reports</span>
+            <Activity className="h-5 w-5 sm:h-6 sm:w-6" />
+            <span className="text-sm sm:text-base font-medium">Health Reports</span>
           </Button>
         </div>
       </div>
 
       {/* Health Analytics */}
-      <div className="health-card p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="section-title mb-0">Health Analytics</h2>
+      <div className="health-card p-4 sm:p-6">
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h2 className="section-title mb-0 text-lg sm:text-xl">Health Analytics</h2>
           <Button variant="ghost" size="sm" className="text-slate-600" onClick={() => setActiveView("reports")}>
             View all <ChevronRight className="h-4 w-4 ml-1" />
           </Button>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <div className="text-center">
-            <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
-              <Heart className="h-8 w-8 text-pink-800" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3">
+              <Heart className="h-6 w-6 sm:h-8 sm:w-8 text-pink-800" />
             </div>
-            <div className="text-2xl font-bold text-slate-900">94%</div>
-            <div className="text-sm text-slate-600">Healthy Pregnancies</div>
+            <div className="text-xl sm:text-2xl font-bold text-slate-900">94%</div>
+            <div className="text-xs sm:text-sm text-slate-600">Healthy Pregnancies</div>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
-              <Baby className="h-8 w-8 text-purple-600" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3">
+              <Baby className="h-6 w-6 sm:h-8 sm:w-8 text-purple-600" />
             </div>
-            <div className="text-2xl font-bold text-slate-900">87%</div>
-            <div className="text-sm text-slate-600">Breastfeeding Success</div>
+            <div className="text-xl sm:text-2xl font-bold text-slate-900">87%</div>
+            <div className="text-xs sm:text-sm text-slate-600">Breastfeeding Success</div>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
-              <Scale className="h-8 w-8 text-blue-600" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3">
+              <Scale className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
             </div>
-            <div className="text-2xl font-bold text-slate-900">2.8kg</div>
-            <div className="text-sm text-slate-600">Avg Birth Weight</div>
+            <div className="text-xl sm:text-2xl font-bold text-slate-900">2.8kg</div>
+            <div className="text-xs sm:text-sm text-slate-600">Avg Birth Weight</div>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
-              <TrendingUp className="h-8 w-8 text-green-600" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3">
+              <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-green-600" />
             </div>
-            <div className="text-2xl font-bold text-slate-900">96%</div>
-            <div className="text-sm text-slate-600">Vaccination Rate</div>
+            <div className="text-xl sm:text-2xl font-bold text-slate-900">96%</div>
+            <div className="text-xs sm:text-sm text-slate-600">Vaccination Rate</div>
           </div>
         </div>
       </div>
 
       {/* Recent Activity */}
-      <div className="grid lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Recent Patients */}
-        <div className="health-card p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="section-title mb-0">Recent Patients</h2>
+        <div className="health-card p-4 sm:p-6">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h2 className="section-title mb-0 text-lg sm:text-xl">Recent Patients</h2>
             <Button variant="ghost" size="sm" onClick={() => {
               setPatientFilter("all")
               setActiveView("patients")
@@ -465,10 +465,10 @@ export default function MaternalHealthDashboard() {
             {recentPatients.map((patient, index) => (
               <div
                 key={index}
-                className="flex items-center space-x-4 p-4 rounded-2xl hover:bg-slate-50 transition-colors cursor-pointer"
+                className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-2xl hover:bg-slate-50 transition-colors cursor-pointer"
                 onClick={() => setActiveView("patients")}
               >
-                <Avatar className="h-12 w-12">
+                <Avatar className="h-10 w-10 sm:h-12 sm:w-12">
                   <AvatarImage src="/placeholder.svg" />
                   <AvatarFallback className="bg-gradient-to-br from-pink-100 to-purple-100 text-slate-700">
                     {patient.first_name?.[0]}
@@ -476,10 +476,10 @@ export default function MaternalHealthDashboard() {
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-slate-900">
+                  <p className="text-sm sm:text-base font-semibold text-slate-900">
                     {patient.first_name} {patient.last_name}
                   </p>
-                  <p className="text-sm text-slate-600">
+                  <p className="text-xs sm:text-sm text-slate-600">
                     {patient.status === "pregnant"
                       ? `${patient.gestational_age} weeks pregnant`
                       : `Lactating - ${patient.child_name}`}
@@ -513,9 +513,9 @@ export default function MaternalHealthDashboard() {
         </div>
 
         {/* Today's Schedule */}
-        <div className="health-card p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="section-title mb-0">Today's Schedule</h2>
+        <div className="health-card p-4 sm:p-6">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h2 className="section-title mb-0 text-lg sm:text-xl">Today's Schedule</h2>
             <Button variant="ghost" size="sm" onClick={() => setActiveView("appointments")} className="text-slate-600">
               View all <ChevronRight className="h-4 w-4 ml-1" />
             </Button>
@@ -525,21 +525,21 @@ export default function MaternalHealthDashboard() {
               todaySchedule.map((appointment, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-4 rounded-2xl hover:bg-slate-50 transition-colors cursor-pointer"
+                  className="flex items-center justify-between p-3 sm:p-4 rounded-2xl hover:bg-slate-50 transition-colors cursor-pointer"
                   onClick={() => setActiveView("appointments")}
                 >
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-3 sm:space-x-4">
                     <div className="text-center">
-                      <div className="text-sm font-bold text-slate-900">{appointment.appointment_time}</div>
-                      <div className="text-xs text-slate-500">{appointment.duration}min</div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900">{appointment.appointment_time}</div>
+                        <div className="text-xs text-slate-500">{appointment.duration}min</div>
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-900">
-                        {appointment.patient
-                          ? `${appointment.patient.first_name} ${appointment.patient.last_name}`
-                          : "Patient TBD"}
-                      </p>
-                      <p className="text-sm text-slate-600">{appointment.type}</p>
+                      <p className="text-sm sm:text-base font-semibold text-slate-900">
+                          {appointment.patient
+                            ? `${appointment.patient.first_name} ${appointment.patient.last_name}`
+                            : "Patient TBD"}
+                        </p>
+                        <p className="text-xs sm:text-sm text-slate-600">{appointment.type}</p>
                     </div>
                   </div>
                   <Badge
@@ -585,16 +585,16 @@ export default function MaternalHealthDashboard() {
 
       {/* Priority Alerts */}
       {dashboardStats.highRiskCases > 0 && (
-        <div className="health-card p-6 border-l-4 border-l-red-400">
+        <div className="health-card p-4 sm:p-6 border-l-4 border-l-red-400">
           <div className="flex items-center mb-4">
             <AlertTriangle className="h-5 w-5 text-red-600 mr-2" />
-            <h2 className="section-title mb-0 text-red-700">Priority Alerts</h2>
+            <h2 className="section-title mb-0 text-lg sm:text-xl text-red-700">Priority Alerts</h2>
           </div>
           <div className="space-y-3">
-            <div className="flex items-center justify-between p-4 bg-red-50 rounded-2xl">
+            <div className="flex items-center justify-between p-3 sm:p-4 bg-red-50 rounded-2xl">
               <div>
-                <p className="font-semibold text-red-900">High-Risk Cases Require Attention</p>
-                <p className="text-sm text-red-700">
+                <p className="text-sm sm:text-base font-semibold text-red-900">High-Risk Cases Require Attention</p>
+                <p className="text-xs sm:text-sm text-red-700">
                   {dashboardStats.highRiskCases} patients need immediate monitoring
                 </p>
               </div>
@@ -616,8 +616,8 @@ export default function MaternalHealthDashboard() {
   )
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-24 lg:pb-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 pb-20 md:pb-6">
         {activeView === "dashboard" && renderDashboard()}
         {activeView === "patients" && (
           <PatientList 

@@ -258,6 +258,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
             value={formData.firstName}
             onChange={(e) => handleInputChange("firstName", e.target.value)}
             placeholder="Enter first name"
+            className="bg-white border-transparent focus:border-slate-200"
           />
         </div>
         <div>
@@ -267,6 +268,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
             value={formData.lastName}
             onChange={(e) => handleInputChange("lastName", e.target.value)}
             placeholder="Enter last name"
+            className="bg-white border-transparent focus:border-slate-200"
           />
         </div>
       </div>
@@ -279,6 +281,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
             type="date"
             value={formData.dateOfBirth}
             onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
+            className="bg-white border-transparent focus:border-slate-200"
           />
         </div>
         <div>
@@ -288,6 +291,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
             value={formData.phone}
             onChange={(e) => handleInputChange("phone", e.target.value)}
             placeholder="+232 XX XXX XXX"
+            className="bg-white border-transparent focus:border-slate-200"
           />
         </div>
       </div>
@@ -341,6 +345,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
             value={formData.emergencyContact}
             onChange={(e) => handleInputChange("emergencyContact", e.target.value)}
             placeholder="Enter contact name"
+            className="bg-white border-transparent focus:border-slate-200"
           />
         </div>
         <div>
@@ -350,6 +355,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
             value={formData.emergencyPhone}
             onChange={(e) => handleInputChange("emergencyPhone", e.target.value)}
             placeholder="+232 XX XXX XXX"
+            className="bg-white border-transparent focus:border-slate-200"
           />
         </div>
       </div>
@@ -362,6 +368,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
           onChange={(e) => handleInputChange("address", e.target.value)}
           placeholder="Enter full address"
           rows={3}
+          className="bg-white border-transparent focus:border-slate-200"
         />
       </div>
 
@@ -387,6 +394,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
             value={formData.chiefdom}
             onChange={(e) => handleInputChange("chiefdom", e.target.value)}
             placeholder="Enter chiefdom"
+            className="bg-white border-transparent focus:border-slate-200"
           />
         </div>
       </div>
@@ -425,6 +433,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
                 value={formData.gestationalAge}
                 onChange={(e) => handleInputChange("gestationalAge", e.target.value)}
                 placeholder="e.g., 28"
+                className="bg-white border-transparent focus:border-slate-200"
               />
             </div>
             <div>
@@ -434,6 +443,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
                 type="date"
                 value={formData.expectedDeliveryDate}
                 onChange={(e) => handleInputChange("expectedDeliveryDate", e.target.value)}
+                className="bg-white border-transparent focus:border-slate-200"
               />
             </div>
           </div>
@@ -447,6 +457,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
                 value={formData.pregnancyNumber}
                 onChange={(e) => handleInputChange("pregnancyNumber", e.target.value)}
                 placeholder="e.g., 2"
+                className="bg-white border-transparent focus:border-slate-200"
               />
             </div>
             <div>
@@ -457,6 +468,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
                 value={formData.previousPregnancies}
                 onChange={(e) => handleInputChange("previousPregnancies", e.target.value)}
                 placeholder="e.g., 1"
+                className="bg-white border-transparent focus:border-slate-200"
               />
             </div>
             <div>
@@ -467,6 +479,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
                 value={formData.previousDeliveries}
                 onChange={(e) => handleInputChange("previousDeliveries", e.target.value)}
                 placeholder="e.g., 1"
+                className="bg-white border-transparent focus:border-slate-200"
               />
             </div>
           </div>
@@ -478,6 +491,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
               type="date"
               value={formData.lastMenstrualPeriod}
               onChange={(e) => handleInputChange("lastMenstrualPeriod", e.target.value)}
+              className="bg-white border-transparent focus:border-slate-200"
             />
           </div>
         </>
@@ -493,6 +507,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
                 type="date"
                 value={formData.deliveryDate}
                 onChange={(e) => handleInputChange("deliveryDate", e.target.value)}
+                className="bg-white border-transparent focus:border-slate-200"
               />
             </div>
             <div>
@@ -502,6 +517,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
                 value={formData.childName}
                 onChange={(e) => handleInputChange("childName", e.target.value)}
                 placeholder="Enter child's name"
+                className="bg-white border-transparent focus:border-slate-200"
               />
             </div>
           </div>
@@ -528,6 +544,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
                 value={formData.birthWeight}
                 onChange={(e) => handleInputChange("birthWeight", e.target.value)}
                 placeholder="e.g., 3.2"
+                className="bg-white border-transparent focus:border-slate-200"
               />
             </div>
             <div>
@@ -539,6 +556,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
                 value={formData.currentChildWeight}
                 onChange={(e) => handleInputChange("currentChildWeight", e.target.value)}
                 placeholder="e.g., 5.1"
+                className="bg-white border-transparent focus:border-slate-200"
               />
             </div>
           </div>
@@ -612,6 +630,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
           onChange={(e) => handleInputChange("familyHistory", e.target.value)}
           placeholder="Any relevant family medical history"
           rows={3}
+          className="bg-white border-transparent focus:border-slate-200"
         />
       </div>
     </div>
@@ -651,6 +670,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
             value={formData.insuranceNumber}
             onChange={(e) => handleInputChange("insuranceNumber", e.target.value)}
             placeholder="Enter insurance number"
+            className="bg-white border-transparent focus:border-slate-200"
           />
         </div>
       </div>
@@ -663,6 +683,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
           onChange={(e) => handleInputChange("allergies", e.target.value)}
           placeholder="List any known allergies"
           rows={2}
+          className="bg-white border-transparent focus:border-slate-200"
         />
       </div>
 
@@ -674,6 +695,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
           onChange={(e) => handleInputChange("medicalHistory", e.target.value)}
           placeholder="Previous medical conditions, surgeries, etc."
           rows={3}
+          className="bg-white border-transparent focus:border-slate-200"
         />
       </div>
 
@@ -685,6 +707,7 @@ export function PatientForm({ onBack }: PatientFormProps) {
           onChange={(e) => handleInputChange("currentMedications", e.target.value)}
           placeholder="List current medications and dosages"
           rows={3}
+          className="bg-white border-transparent focus:border-slate-200"
         />
       </div>
     </div>

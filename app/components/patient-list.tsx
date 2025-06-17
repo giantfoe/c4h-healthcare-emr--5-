@@ -57,7 +57,7 @@ export function PatientList({ onBack, initialFilter = "all" }: PatientListProps)
       case "high":
         return "bg-red-100 text-red-800 hover:bg-red-100"
       case "medium":
-        return "bg-yellow-100 text-yellow-800 hover:bg-yellow-100"
+        return "bg-orange-100 text-orange-800 hover:bg-orange-100"
       case "low":
         return "bg-green-100 text-green-800 hover:bg-green-100"
       default:
@@ -151,7 +151,7 @@ export function PatientList({ onBack, initialFilter = "all" }: PatientListProps)
               placeholder="Search mothers by name or phone..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 h-12 rounded-2xl border-slate-200 focus:border-pink-300 focus:ring-pink-200"
+              className="pl-12 h-12 rounded-2xl bg-white border-transparent focus:border-slate-200"
             />
           </div>
           <div className="flex gap-2">
@@ -163,13 +163,13 @@ export function PatientList({ onBack, initialFilter = "all" }: PatientListProps)
             ].map((filter) => (
               <Button
                 key={filter.id}
-                variant={selectedFilter === filter.id ? "default" : "outline"}
+                variant={selectedFilter === filter.id ? "secondary" : "outline"}
                 size="sm"
                 onClick={() => setSelectedFilter(filter.id)}
                 className={`rounded-xl ${
                   selectedFilter === filter.id
-                    ? "bg-gradient-to-r from-pink-500 to-rose-500 text-white"
-                    : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                    ? "bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200"
                 }`}
               >
                 {filter.label}
@@ -291,8 +291,8 @@ export function PatientList({ onBack, initialFilter = "all" }: PatientListProps)
                 <div className="mt-6 flex space-x-3">
                   <Button
                     size="sm"
-                    variant="outline"
-                    className="flex-1 rounded-xl border-slate-200 text-slate-700 hover:bg-slate-50"
+                    variant="secondary"
+                    className="flex-1 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200"
                     onClick={(e) => {
                       e.stopPropagation()
                       setSelectedPatient(patient.id)

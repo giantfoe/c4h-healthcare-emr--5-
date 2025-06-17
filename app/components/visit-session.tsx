@@ -255,7 +255,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
               placeholder="What brings the patient in today?"
               value={visitNotes.chief_complaint}
               onChange={(e) => handleNotesChange('chief_complaint', e.target.value)}
-              className="min-h-[120px]"
+              className="min-h-[120px] bg-white border-transparent focus:border-slate-200"
             />
           </CardContent>
         </Card>
@@ -273,7 +273,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
               placeholder="Physical examination findings, vital signs, etc."
               value={visitNotes.examination_findings}
               onChange={(e) => handleNotesChange('examination_findings', e.target.value)}
-              className="min-h-[120px]"
+              className="min-h-[120px] bg-white border-transparent focus:border-slate-200"
             />
           </CardContent>
         </Card>
@@ -291,7 +291,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
               placeholder="Primary and secondary diagnoses"
               value={visitNotes.diagnosis}
               onChange={(e) => handleNotesChange('diagnosis', e.target.value)}
-              className="min-h-[120px]"
+              className="min-h-[120px] bg-white border-transparent focus:border-slate-200"
             />
           </CardContent>
         </Card>
@@ -309,7 +309,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
               placeholder="Treatment recommendations, medications, instructions"
               value={visitNotes.treatment_plan}
               onChange={(e) => handleNotesChange('treatment_plan', e.target.value)}
-              className="min-h-[120px]"
+              className="min-h-[120px] bg-white border-transparent focus:border-slate-200"
             />
           </CardContent>
         </Card>
@@ -330,7 +330,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
               type="date"
               value={visitNotes.follow_up_date}
               onChange={(e) => handleNotesChange('follow_up_date', e.target.value)}
-              className="w-full p-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 bg-white border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-slate-200"
             />
           </CardContent>
         </Card>
@@ -349,7 +349,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
               placeholder="Provider name"
               value={visitNotes.provider_name}
               onChange={(e) => handleNotesChange('provider_name', e.target.value)}
-              className="w-full p-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 bg-white border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-slate-200"
             />
           </CardContent>
         </Card>
@@ -361,7 +361,7 @@ export function VisitSession({ appointment, onEndVisit, onUpdateAppointment }: V
           <Badge 
             className={`px-4 py-2 text-sm font-medium ${
               isPaused 
-                ? "bg-yellow-100 text-yellow-800" 
+                ? "bg-slate-100 text-slate-800" 
                 : "bg-green-100 text-green-800 animate-pulse"
             }`}
           >

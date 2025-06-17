@@ -120,7 +120,7 @@ export function ViewNotes({ appointment, onBack }: ViewNotesProps) {
               <span className="font-medium text-gray-700">Risk Level:</span>
               <span className={`ml-2 capitalize ${
                 patient?.risk_level === 'high' ? 'text-red-600' :
-                patient?.risk_level === 'medium' ? 'text-yellow-600' :
+                patient?.risk_level === 'medium' ? 'text-orange-600' :
                 'text-green-600'
               }`}>
                 {patient?.risk_level || 'N/A'}
@@ -235,8 +235,8 @@ export function ViewNotes({ appointment, onBack }: ViewNotesProps) {
                       {note.follow_up_date && (
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-2">Follow-up Date</h4>
-                          <div className="bg-yellow-50 border border-yellow-200 p-3 rounded-lg">
-                            <p className="text-yellow-800">{formatDate(note.follow_up_date)}</p>
+                          <div className="bg-blue-50 border border-blue-200 p-3 rounded-lg">
+                            <p className="text-blue-800">{formatDate(note.follow_up_date)}</p>
                           </div>
                         </div>
                       )}

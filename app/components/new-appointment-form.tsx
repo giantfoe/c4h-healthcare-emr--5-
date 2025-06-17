@@ -217,7 +217,7 @@ export function NewAppointmentForm({ onBack, onSave, selectedDate, preSelectedPa
                 type="date"
                 value={formData.appointment_date}
                 onChange={(e) => handleInputChange("appointment_date", e.target.value)}
-                className="h-12 rounded-xl"
+                className="h-12 rounded-xl bg-white border-transparent focus:border-slate-200"
               />
             </div>
 
@@ -280,7 +280,7 @@ export function NewAppointmentForm({ onBack, onSave, selectedDate, preSelectedPa
                 type="number"
                 value={formData.duration}
                 onChange={(e) => handleInputChange("duration", Number.parseInt(e.target.value))}
-                className="h-12 rounded-xl"
+                className="h-12 rounded-xl bg-white border-transparent focus:border-slate-200"
                 min="15"
                 max="120"
                 step="15"
@@ -295,7 +295,7 @@ export function NewAppointmentForm({ onBack, onSave, selectedDate, preSelectedPa
               value={formData.notes}
               onChange={(e) => handleInputChange("notes", e.target.value)}
               placeholder="Add any special instructions or notes for this appointment..."
-              className="rounded-xl"
+              className="rounded-xl bg-white border-transparent focus:border-slate-200"
               rows={3}
             />
           </div>
@@ -305,7 +305,7 @@ export function NewAppointmentForm({ onBack, onSave, selectedDate, preSelectedPa
         <div className="space-y-3">
           {/* Helper text for disabled state */}
           {(!formData.patient_id || !formData.type) && (
-            <div className="text-sm text-amber-600 bg-amber-50 border border-amber-200 rounded-xl p-3 flex items-center">
+            <div className="text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center">
               <Clock className="h-4 w-4 mr-2" />
               {!formData.patient_id && !formData.type 
                 ? "Please select a patient and appointment type to continue"

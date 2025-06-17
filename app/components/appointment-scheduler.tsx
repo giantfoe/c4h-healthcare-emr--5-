@@ -78,7 +78,7 @@ export function AppointmentScheduler({ onBack }: AppointmentSchedulerProps) {
       case "confirmed":
         return "bg-green-100 text-green-800 hover:bg-green-100"
       case "pending":
-        return "bg-yellow-100 text-yellow-800 hover:bg-yellow-100"
+        return "bg-orange-100 text-orange-800 hover:bg-orange-100"
       case "completed":
         return "bg-blue-100 text-blue-800 hover:bg-blue-100"
       case "cancelled":
@@ -320,8 +320,8 @@ export function AppointmentScheduler({ onBack }: AppointmentSchedulerProps) {
                           </Button>
                           <Button
                             size="sm"
-                            variant="outline"
-                            className="flex-1 rounded-xl"
+                            variant="secondary"
+                            className="flex-1 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200"
                             onClick={() => alert("Reschedule functionality would open here")}
                           >
                             Reschedule
@@ -339,8 +339,8 @@ export function AppointmentScheduler({ onBack }: AppointmentSchedulerProps) {
                           </Button>
                           <Button
                             size="sm"
-                            variant="outline"
-                            className="flex-1 rounded-xl"
+                            variant="secondary"
+                            className="flex-1 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200"
                             onClick={() => alert("Reschedule functionality would open here")}
                           >
                             Reschedule

@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated Vercel deployment configuration to use `npm install --legacy-peer-deps` to resolve React 19 compatibility issues with react-day-picker
+- **UI Color Scheme Improvements**: Removed all yellow color instances from UI components
+- Replaced yellow colors for medium risk levels with orange for better visual hierarchy
+- Updated pending appointment status from yellow to orange for improved readability
+- Changed follow-up date highlighting from yellow to blue for consistency
+- Updated paused visit status from yellow to slate for better contrast
+- Fixed yellow accent color in CSS variables, changed to blue for consistency
+- Updated cream-card gradient from yellow/orange to blue tones for consistent color scheme
+- Changed offline indicator from amber to neutral slate colors
+- Updated appointment form helper text from amber to neutral slate colors
+  - Applied changes across patient-list, patient-details, view-notes, appointment-scheduler, and visit-session components
 
 ### Added
 - Initial project setup with Next.js 14 and TypeScript
