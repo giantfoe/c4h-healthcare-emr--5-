@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Updated Vercel deployment configuration to use `npm install --legacy-peer-deps` to resolve React 19 compatibility issues with react-day-picker
+
 ### Added
 - Initial project setup with Next.js 14 and TypeScript
 - Comprehensive patient management system
