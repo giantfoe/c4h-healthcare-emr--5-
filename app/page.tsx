@@ -27,7 +27,7 @@ import { MobileNav } from "./components/mobile-nav"
 import { Reports } from "./components/reports"
 import { patientService, appointmentService, Patient, Appointment } from "./lib/supabase"
 
-export default function MaternalHealthDashboard() {
+export default function MaternalHealthDashboard({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }) {
   const [mounted, setMounted] = useState(false)
   const [activeView, setActiveView] = useState("dashboard")
   const [patientFilter, setPatientFilter] = useState("all")
