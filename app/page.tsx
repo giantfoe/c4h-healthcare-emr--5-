@@ -28,6 +28,7 @@ import { Reports } from "./components/reports"
 import { patientService, appointmentService, Patient, Appointment } from "./lib/supabase"
 
 export default function MaternalHealthDashboard() {
+  const [mounted, setMounted] = useState(false)
   const [activeView, setActiveView] = useState("dashboard")
   const [patientFilter, setPatientFilter] = useState("all")
   const [isOnline, setIsOnline] = useState(true)
@@ -71,7 +72,14 @@ export default function MaternalHealthDashboard() {
   const [recentPatients, setRecentPatients] = useState<Patient[]>([])
   const [todaySchedule, setTodaySchedule] = useState<Appointment[]>([])
 
+  // Client-side mounting check
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+
     const handleOnline = () => setIsOnline(true)
     const handleOffline = () => setIsOnline(false)
 
@@ -85,17 +93,21 @@ export default function MaternalHealthDashboard() {
       window.removeEventListener("online", handleOnline)
       window.removeEventListener("offline", handleOffline)
     }
-  }, [])
+  }, [mounted])
 
   // Reload dashboard data when returning to dashboard view
   useEffect(() => {
+    if (!mounted) return
+    
     if (activeView === "dashboard") {
       loadDashboardData()
     }
-  }, [activeView])
+  }, [activeView, mounted])
 
   // Close dropdowns when clicking outside
   useEffect(() => {
+    if (!mounted) return
+
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element
       if (!target.closest('.dropdown-container')) {
@@ -109,7 +121,7 @@ export default function MaternalHealthDashboard() {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [])
+  }, [mounted])
 
   const loadDashboardData = async () => {
     try {
@@ -614,6 +626,11 @@ export default function MaternalHealthDashboard() {
       )}
     </div>
   )
+
+  // Prevent SSR rendering - only render after client-side mount
+  if (!mounted) {
+    return null
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
